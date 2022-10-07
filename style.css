@@ -1,0 +1,27 @@
+
+body {
+    background-image: linear-gradient(to right, #DECBA4, #3E5151);
+}
+div{
+    border: #3E5151 solid 1px;
+    /* border: none; */
+    display: grid;
+    
+}
+.container > div:hover{
+    background-color: black;
+}    
+.container {
+    display: grid;
+    height: 400px;
+    width: 400px;
+    border: 2px blue solid;
+    margin: auto ;
+}
+button {
+    background-color: aquamarine;
+    width: 100px;
+    height: 40px;
+    color:goldenrod;
+    border-radius: 10px ;
+}
