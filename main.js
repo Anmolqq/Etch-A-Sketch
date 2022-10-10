@@ -2,30 +2,27 @@ let r = document.querySelector(':root');
 const container = document.querySelector('.container');
 const button  = document.querySelector('button');
 
-let size = 16;
-let fsize = size * size;
 
-Grid();
+Grid(16);
 
 button.addEventListener('click', () => {
+    let size;
+    deleteChild();
     
     do {
         size = parseInt(prompt("Enter Width and Height of Grid!"))
         
     } while (size > 100);
-    Grid();
+    Grid(size);
     
     
 });
 
-function Grid(){
+function Grid(size){
+    let fsize = size * size;
+
     r.style.setProperty('--size', size);
-    r.style.setProperty('--height', size);
-    container.setAttribute("style", " grid-template-rows: repeat(var(--size), 0.5   fr); grid-template-columns: repeat(var(--size), 0.5fr);");
-    
-    console.log(fsize)
-    console.log(typeof(fsize))
-    
+    container.setAttribute("style", " grid-template-rows: repeat(var(--size), 1fr); grid-template-columns: repeat(var(--size), 1fr);");
     
     for(let i = 0; i < fsize; i++)
     {
@@ -34,6 +31,17 @@ function Grid(){
         container.appendChild(elm);
     }
     
+}
+
+function deleteChild() {
+    
+    
+    //e.firstElementChild can be used.
+    let child = container.lastElementChild; 
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
 }
 
 
